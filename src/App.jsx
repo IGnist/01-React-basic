@@ -1,29 +1,31 @@
 import { useState } from 'react'
 import './App.css'
 
-function App() {
-  let [a1,seta1]=useState(10)
-  const addValue=()=>{
-    a1=a1+1
-    if(a1>20)
-    a1=20
-    seta1(a1)
-  }
-  const RemoveValue=()=>{
-    a1=a1-1
-    if(a1<0)
-    a1=0
-    seta1(a1)
 
+function App() {
+  let [counter, setCounter] = useState(15);
+  function addValue() {
+    if (counter < 20) {
+      setCounter(counter + 1);
+    }
+    else
+      setCounter(counter);
+  }
+  function RemoveValue() {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+    else
+      setCounter(counter);
   }
   return (
     <>
       <h1>React</h1>
-      <button onClick = {addValue}> 
-      ADD - {a1}</button>
+      <button onClick={addValue}>
+        ADD - {counter}</button>
       <br />
       <button onClick={RemoveValue}>
-      Substract - {a1}</button>
+        Substract - {counter}</button>
     </>
   );
 }
